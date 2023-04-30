@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/johnevieve/Exercice_04_A_2.git"
-  },
   "author": "Genevieve Trudel et Frederic Champagne",
   "license": "ISC",
   "bugs": {
