@@ -2106,5 +2106,7 @@
   } = axios_default;
 
   // resources/js/app.js
+  console.log("oOOOooOOO");
   axios_default.get("http://localhost:3000/api/").then((response) => console.log(response)).catch((error) => console.error(error));
+  console.log("hOnk");
 })();
