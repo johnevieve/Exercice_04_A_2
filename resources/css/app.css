@@ -1,7 +1,40 @@
+body,
+html {
+  height: 92%;
+  margin: 0;
+}
+
 body {
   text-align: center;
-  color: white;
+  font-size: 30px;
+  color: darkgray;
+
+  height: 100%;
+
+  background-image: linear-gradient(to bottom right, rgb(24, 0, 0), red);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+footer {
   background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  font-size: 15px;
+  margin: 0;
+}
+
+h1 {
+  color: black;
+  text-shadow: 2px 2px 5px red;
 }
 
 table {
@@ -12,7 +45,7 @@ table {
 }
 
 thead {
-  background-color: red;
+  background-color: black;
 }
 
 th,
@@ -21,6 +54,6 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
-td:last-child {
-  border-right: 1px solid #ddd;
+tr:hover {
+  background-color: red;
 }
