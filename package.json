@@ -6,7 +6,11 @@
   "author": "Genevieve Trudel et Frederic Champagne",
   "scripts": {
     "start": "nodemon app.js",
-    "build": "esbuild resources/js/app.js --bundle --outfile=public/js/app.js"
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "esbuild resources/js/app.js --bundle --outfile=public/js/app.js",
+    "build:css": "esbuild resources/css/app.css --bundle --outfile=public/css/app.css",
+    "build:js-watch": "npm run build:js -- --watch",
+    "build:css-watch": "npm run build:css -- --watch"
   },
   "dependencies": {
     "axios": "^1.4.0",
