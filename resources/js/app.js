@@ -1,12 +1,31 @@
 import axios from 'axios';
 
-// Récupérer l'élément span par son ID
-const spanElement = document.getElementById('PATATE');
-
-// Ajouter du texte à l'élément span
-spanElement.innerHTML = 'Nouveau texte à ajouter';
-
-
 axios.get('http://localhost:3000/api/personnages').
-then(response => console.log(response)).
-catch(error => console.error(error));
+  then(response => {
+    const db = response.data.db;
+    const tableBody = db.map(personnage => {
+      return `
+        <tr>
+          <td>${personnage.id}</td>
+          <td>${personnage.name}</td>
+          <td>${personnage.realname}</td>
+        </tr>
+      `;
+    }).join('');
+    const table = `
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Nom réel</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableBody}
+        </tbody>
+      </table>
+    `;
+    document.getElementById('tablePersonnages').innerHTML = table;
+  }).
+  catch(error => console.error(error));
