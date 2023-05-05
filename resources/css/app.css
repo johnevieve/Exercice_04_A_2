@@ -1,6 +1,6 @@
 body,
 html {
-  height: 92%;
+  height: 95vh;
   margin: 0;
 }
 
@@ -8,8 +8,6 @@ body {
   text-align: center;
   font-size: 30px;
   color: darkgray;
-
-  height: 100%;
 
   background-image: linear-gradient(to bottom right, rgb(24, 0, 0), red);
   background-position: center;
