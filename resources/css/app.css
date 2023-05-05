@@ -33,8 +33,8 @@ footer p {
 }
 
 h1 {
-  color: black;
-  text-shadow: 2px 2px 5px red;
+  color: red;
+  text-shadow: 2px 2px 5px black;
 }
 
 table {
