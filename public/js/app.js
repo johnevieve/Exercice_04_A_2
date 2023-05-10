@@ -2113,13 +2113,41 @@
     description
   }
 }`;
-  function rechercherProduits() {
-    console.log("patate");
+  function rechercherProduits(filtre) {
     axios_default.post("http://localhost:4000/graphql", {
       query,
-      variables: { filtre: "batman" }
+      variables: { filtre }
     }).then((response) => {
-      console.log(response.data);
+      const db = response.data.data.feed;
+      let afficherProduit;
+      if (db.length == 0) {
+        afficherProduit = `<p>Aucun produit trouv\xE9...</p>`;
+      } else {
+        const tableBody = db.map((produit) => {
+          return `
+        <tr")'>
+          <td>${produit.id}</td>
+          <td>${produit.url}</td>
+          <td>${produit.description}</td>
+        </tr>
+      `;
+        }).join("");
+        afficherProduit = `
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Nom r\xE9el</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableBody}
+        </tbody>
+      </table>
+    `;
+      }
+      document.getElementById("tableProduits").innerHTML = afficherProduit;
     }).catch((error) => {
       console.error(error);
     });
@@ -2131,7 +2159,7 @@
     const db = response.data.db;
     const tableBody = db.map((personnage) => {
       return `
-        <tr onclick='window.rechercherProduits()'>
+        <tr onclick='window.rechercherProduits("${personnage.name}")'>
           <td>${personnage.id}</td>
           <td>${personnage.name}</td>
           <td>${personnage.realname}</td>
@@ -2153,8 +2181,5 @@
       </table>
     `;
     document.getElementById("tablePersonnages").innerHTML = table;
-    document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById("produits").addEventListener("click", alert("hey!"));
-    });
   }).catch((error) => console.error(error));
 })();
