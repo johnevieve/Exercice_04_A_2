@@ -2105,12 +2105,33 @@
     mergeConfig: mergeConfig2
   } = axios_default;
 
+  // resources/js/functions.js
+  var query = `query Query($filtre: String) {
+  feed(filtre: $filtre) {
+    id
+    url
+    description
+  }
+}`;
+  function rechercherProduits() {
+    console.log("patate");
+    axios_default.post("http://localhost:4000/graphql", {
+      query,
+      variables: { filtre: "batman" }
+    }).then((response) => {
+      console.log(response.data);
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
+
   // resources/js/app.js
+  window.rechercherProduits = rechercherProduits;
   axios_default.get("http://localhost:3000/api/personnages").then((response) => {
     const db = response.data.db;
     const tableBody = db.map((personnage) => {
       return `
-        <tr>
+        <tr onclick='window.rechercherProduits()'>
           <td>${personnage.id}</td>
           <td>${personnage.name}</td>
           <td>${personnage.realname}</td>
@@ -2132,5 +2153,8 @@
       </table>
     `;
     document.getElementById("tablePersonnages").innerHTML = table;
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("produits").addEventListener("click", alert("hey!"));
+    });
   }).catch((error) => console.error(error));
 })();
