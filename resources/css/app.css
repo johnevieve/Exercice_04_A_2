@@ -9,6 +9,7 @@ body {
   font-size: 30px;
   color: darkgray;
 
+  background-attachment: fixed;
   background-image: linear-gradient(to bottom right, rgb(24, 0, 0), red);
   background-position: center;
   background-repeat: no-repeat;
@@ -39,6 +40,7 @@ table {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  table-layout: fixed;
   border-collapse: collapse;
 }
 

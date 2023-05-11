@@ -17,7 +17,7 @@ axios.get('http://localhost:3000/api/personnages').
       `;
     }).join('');
     
-    const table = `
+    const tablePersonnages = `
       <table>
         <thead>
           <tr>
@@ -32,7 +32,7 @@ axios.get('http://localhost:3000/api/personnages').
       </table>
     `;
 
-    document.getElementById('tablePersonnages').innerHTML = table;
+    document.getElementById('tablePersonnages').innerHTML = tablePersonnages;
 
   }).
   catch(error => console.error(error));

@@ -22,35 +22,33 @@ function rechercherProduits(filtre) {
     else {
       const tableBody = db.map(produit => {
         return `
-        <tr")'>
+        <tr>
           <td>${produit.id}</td>
           <td>${produit.url}</td>
           <td>${produit.description}</td>
         </tr>
-      `;
+        `;
       }).join('');
 
       afficherProduit = `
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Nom réel</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${tableBody}
-        </tbody>
-      </table>
-    `;
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tableBody}
+          </tbody>
+        </table>
+      `;
     }
 
     document.getElementById('tableProduits').innerHTML = afficherProduit;
-  })
-    .catch(error => {
-      console.error(error);
-    });
+  }).
+  catch(error => console.error(error));
 }
 
 export { rechercherProduits };

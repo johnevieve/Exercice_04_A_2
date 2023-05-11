@@ -2125,32 +2125,30 @@
       } else {
         const tableBody = db.map((produit) => {
           return `
-        <tr")'>
+        <tr>
           <td>${produit.id}</td>
           <td>${produit.url}</td>
           <td>${produit.description}</td>
         </tr>
-      `;
+        `;
         }).join("");
         afficherProduit = `
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Nom r\xE9el</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${tableBody}
-        </tbody>
-      </table>
-    `;
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tableBody}
+          </tbody>
+        </table>
+      `;
       }
       document.getElementById("tableProduits").innerHTML = afficherProduit;
-    }).catch((error) => {
-      console.error(error);
-    });
+    }).catch((error) => console.error(error));
   }
 
   // resources/js/app.js
@@ -2166,7 +2164,7 @@
         </tr>
       `;
     }).join("");
-    const table = `
+    const tablePersonnages = `
       <table>
         <thead>
           <tr>
@@ -2180,6 +2178,6 @@
         </tbody>
       </table>
     `;
-    document.getElementById("tablePersonnages").innerHTML = table;
+    document.getElementById("tablePersonnages").innerHTML = tablePersonnages;
   }).catch((error) => console.error(error));
 })();
